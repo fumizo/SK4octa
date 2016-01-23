@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"  //viewConでslf.viewをskviewに指定してる
 
 @interface AppDelegate ()
 
@@ -17,6 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //ViewControllerをrootViewControllerに設定してるよ
+    //rootViewController(根っこ)は、storyboardの矢印で指定してるのと同じこと、だからこれは要らない
+    /*
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    ViewController *viewController = ViewController.new;
+    _window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+     */
+
+    
     return YES;
 }
 

@@ -15,6 +15,10 @@
 		1FDE198A1C537590006437F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDE19881C537590006437F2 /* LaunchScreen.storyboard */; };
 		1FDE19951C537590006437F2 /* SKOctagonSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE19941C537590006437F2 /* SKOctagonSampleTests.m */; };
 		1FDE19A01C537590006437F2 /* SKOctagonSampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE199F1C537590006437F2 /* SKOctagonSampleUITests.m */; };
+		1FDE19AE1C5379DC006437F2 /* gameView_board.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FDE19AD1C5379DC006437F2 /* gameView_board.png */; };
+		1FDE19B11C537C44006437F2 /* SKPlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE19B01C537C44006437F2 /* SKPlayScene.m */; };
+		1FDE19B31C537CBE006437F2 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FDE19B21C537CBE006437F2 /* config.json */; };
+		1FDE19B51C5394BD006437F2 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDE19B41C5394BD006437F2 /* SpriteKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,11 @@
 		1FDE199B1C537590006437F2 /* SKOctagonSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKOctagonSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FDE199F1C537590006437F2 /* SKOctagonSampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKOctagonSampleUITests.m; sourceTree = "<group>"; };
 		1FDE19A11C537590006437F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FDE19AD1C5379DC006437F2 /* gameView_board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameView_board.png; sourceTree = "<group>"; };
+		1FDE19AF1C537C44006437F2 /* SKPlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKPlayScene.h; path = ../SKPlayScene.h; sourceTree = "<group>"; };
+		1FDE19B01C537C44006437F2 /* SKPlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKPlayScene.m; path = ../SKPlayScene.m; sourceTree = "<group>"; };
+		1FDE19B21C537CBE006437F2 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = config.json; path = ../config.json; sourceTree = "<group>"; };
+		1FDE19B41C5394BD006437F2 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FDE19B51C5394BD006437F2 /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +91,8 @@
 		1FDE196E1C53758F006437F2 = {
 			isa = PBXGroup;
 			children = (
+				1FDE19B41C5394BD006437F2 /* SpriteKit.framework */,
+				1FDE19AD1C5379DC006437F2 /* gameView_board.png */,
 				1FDE19791C537590006437F2 /* SKOctagonSample */,
 				1FDE19931C537590006437F2 /* SKOctagonSampleTests */,
 				1FDE199E1C537590006437F2 /* SKOctagonSampleUITests */,
@@ -101,10 +113,13 @@
 		1FDE19791C537590006437F2 /* SKOctagonSample */ = {
 			isa = PBXGroup;
 			children = (
+				1FDE19B21C537CBE006437F2 /* config.json */,
 				1FDE197D1C537590006437F2 /* AppDelegate.h */,
 				1FDE197E1C537590006437F2 /* AppDelegate.m */,
 				1FDE19801C537590006437F2 /* ViewController.h */,
 				1FDE19811C537590006437F2 /* ViewController.m */,
+				1FDE19AF1C537C44006437F2 /* SKPlayScene.h */,
+				1FDE19B01C537C44006437F2 /* SKPlayScene.m */,
 				1FDE19831C537590006437F2 /* Main.storyboard */,
 				1FDE19861C537590006437F2 /* Assets.xcassets */,
 				1FDE19881C537590006437F2 /* LaunchScreen.storyboard */,
@@ -244,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FDE198A1C537590006437F2 /* LaunchScreen.storyboard in Resources */,
+				1FDE19AE1C5379DC006437F2 /* gameView_board.png in Resources */,
+				1FDE19B31C537CBE006437F2 /* config.json in Resources */,
 				1FDE19871C537590006437F2 /* Assets.xcassets in Resources */,
 				1FDE19851C537590006437F2 /* Main.storyboard in Resources */,
 			);
@@ -272,6 +289,7 @@
 			files = (
 				1FDE19821C537590006437F2 /* ViewController.m in Sources */,
 				1FDE197F1C537590006437F2 /* AppDelegate.m in Sources */,
+				1FDE19B11C537C44006437F2 /* SKPlayScene.m in Sources */,
 				1FDE197C1C537590006437F2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
