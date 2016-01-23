@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1FDE197C1C537590006437F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE197B1C537590006437F2 /* main.m */; };
+		1FDE197F1C537590006437F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE197E1C537590006437F2 /* AppDelegate.m */; };
+		1FDE19821C537590006437F2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE19811C537590006437F2 /* ViewController.m */; };
+		1FDE19851C537590006437F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDE19831C537590006437F2 /* Main.storyboard */; };
+		1FDE19871C537590006437F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FDE19861C537590006437F2 /* Assets.xcassets */; };
+		1FDE198A1C537590006437F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDE19881C537590006437F2 /* LaunchScreen.storyboard */; };
+		1FDE19951C537590006437F2 /* SKOctagonSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE19941C537590006437F2 /* SKOctagonSampleTests.m */; };
+		1FDE19A01C537590006437F2 /* SKOctagonSampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE199F1C537590006437F2 /* SKOctagonSampleUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1FDE19911C537590006437F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FDE196F1C53758F006437F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FDE19761C537590006437F2;
+			remoteInfo = SKOctagonSample;
+		};
+		1FDE199C1C537590006437F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FDE196F1C53758F006437F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FDE19761C537590006437F2;
+			remoteInfo = SKOctagonSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1FDE19771C537590006437F2 /* SKOctagonSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKOctagonSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FDE197B1C537590006437F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1FDE197D1C537590006437F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1FDE197E1C537590006437F2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1FDE19801C537590006437F2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1FDE19811C537590006437F2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1FDE19841C537590006437F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1FDE19861C537590006437F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1FDE19891C537590006437F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1FDE198B1C537590006437F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FDE19901C537590006437F2 /* SKOctagonSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKOctagonSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FDE19941C537590006437F2 /* SKOctagonSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKOctagonSampleTests.m; sourceTree = "<group>"; };
+		1FDE19961C537590006437F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FDE199B1C537590006437F2 /* SKOctagonSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKOctagonSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FDE199F1C537590006437F2 /* SKOctagonSampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKOctagonSampleUITests.m; sourceTree = "<group>"; };
+		1FDE19A11C537590006437F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1FDE19741C537590006437F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FDE198D1C537590006437F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FDE19981C537590006437F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1FDE196E1C53758F006437F2 = {
+			isa = PBXGroup;
+			children = (
+				1FDE19791C537590006437F2 /* SKOctagonSample */,
+				1FDE19931C537590006437F2 /* SKOctagonSampleTests */,
+				1FDE199E1C537590006437F2 /* SKOctagonSampleUITests */,
+				1FDE19781C537590006437F2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1FDE19781C537590006437F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FDE19771C537590006437F2 /* SKOctagonSample.app */,
+				1FDE19901C537590006437F2 /* SKOctagonSampleTests.xctest */,
+				1FDE199B1C537590006437F2 /* SKOctagonSampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1FDE19791C537590006437F2 /* SKOctagonSample */ = {
+			isa = PBXGroup;
+			children = (
+				1FDE197D1C537590006437F2 /* AppDelegate.h */,
+				1FDE197E1C537590006437F2 /* AppDelegate.m */,
+				1FDE19801C537590006437F2 /* ViewController.h */,
+				1FDE19811C537590006437F2 /* ViewController.m */,
+				1FDE19831C537590006437F2 /* Main.storyboard */,
+				1FDE19861C537590006437F2 /* Assets.xcassets */,
+				1FDE19881C537590006437F2 /* LaunchScreen.storyboard */,
+				1FDE198B1C537590006437F2 /* Info.plist */,
+				1FDE197A1C537590006437F2 /* Supporting Files */,
+			);
+			path = SKOctagonSample;
+			sourceTree = "<group>";
+		};
+		1FDE197A1C537590006437F2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1FDE197B1C537590006437F2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1FDE19931C537590006437F2 /* SKOctagonSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				1FDE19941C537590006437F2 /* SKOctagonSampleTests.m */,
+				1FDE19961C537590006437F2 /* Info.plist */,
+			);
+			path = SKOctagonSampleTests;
+			sourceTree = "<group>";
+		};
+		1FDE199E1C537590006437F2 /* SKOctagonSampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1FDE199F1C537590006437F2 /* SKOctagonSampleUITests.m */,
+				1FDE19A11C537590006437F2 /* Info.plist */,
+			);
+			path = SKOctagonSampleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1FDE19761C537590006437F2 /* SKOctagonSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FDE19A41C537590006437F2 /* Build configuration list for PBXNativeTarget "SKOctagonSample" */;
+			buildPhases = (
+				1FDE19731C537590006437F2 /* Sources */,
+				1FDE19741C537590006437F2 /* Frameworks */,
+				1FDE19751C537590006437F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SKOctagonSample;
+			productName = SKOctagonSample;
+			productReference = 1FDE19771C537590006437F2 /* SKOctagonSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1FDE198F1C537590006437F2 /* SKOctagonSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FDE19A71C537590006437F2 /* Build configuration list for PBXNativeTarget "SKOctagonSampleTests" */;
+			buildPhases = (
+				1FDE198C1C537590006437F2 /* Sources */,
+				1FDE198D1C537590006437F2 /* Frameworks */,
+				1FDE198E1C537590006437F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FDE19921C537590006437F2 /* PBXTargetDependency */,
+			);
+			name = SKOctagonSampleTests;
+			productName = SKOctagonSampleTests;
+			productReference = 1FDE19901C537590006437F2 /* SKOctagonSampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1FDE199A1C537590006437F2 /* SKOctagonSampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FDE19AA1C537590006437F2 /* Build configuration list for PBXNativeTarget "SKOctagonSampleUITests" */;
+			buildPhases = (
+				1FDE19971C537590006437F2 /* Sources */,
+				1FDE19981C537590006437F2 /* Frameworks */,
+				1FDE19991C537590006437F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FDE199D1C537590006437F2 /* PBXTargetDependency */,
+			);
+			name = SKOctagonSampleUITests;
+			productName = SKOctagonSampleUITests;
+			productReference = 1FDE199B1C537590006437F2 /* SKOctagonSampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1FDE196F1C53758F006437F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = FumikoYamamoto;
+				TargetAttributes = {
+					1FDE19761C537590006437F2 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					1FDE198F1C537590006437F2 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 1FDE19761C537590006437F2;
+					};
+					1FDE199A1C537590006437F2 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 1FDE19761C537590006437F2;
+					};
+				};
+			};
+			buildConfigurationList = 1FDE19721C53758F006437F2 /* Build configuration list for PBXProject "SKOctagonSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1FDE196E1C53758F006437F2;
+			productRefGroup = 1FDE19781C537590006437F2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1FDE19761C537590006437F2 /* SKOctagonSample */,
+				1FDE198F1C537590006437F2 /* SKOctagonSampleTests */,
+				1FDE199A1C537590006437F2 /* SKOctagonSampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1FDE19751C537590006437F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FDE198A1C537590006437F2 /* LaunchScreen.storyboard in Resources */,
+				1FDE19871C537590006437F2 /* Assets.xcassets in Resources */,
+				1FDE19851C537590006437F2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FDE198E1C537590006437F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FDE19991C537590006437F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1FDE19731C537590006437F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FDE19821C537590006437F2 /* ViewController.m in Sources */,
+				1FDE197F1C537590006437F2 /* AppDelegate.m in Sources */,
+				1FDE197C1C537590006437F2 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FDE198C1C537590006437F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FDE19951C537590006437F2 /* SKOctagonSampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FDE19971C537590006437F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FDE19A01C537590006437F2 /* SKOctagonSampleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FDE19921C537590006437F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FDE19761C537590006437F2 /* SKOctagonSample */;
+			targetProxy = 1FDE19911C537590006437F2 /* PBXContainerItemProxy */;
+		};
+		1FDE199D1C537590006437F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FDE19761C537590006437F2 /* SKOctagonSample */;
+			targetProxy = 1FDE199C1C537590006437F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1FDE19831C537590006437F2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FDE19841C537590006437F2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1FDE19881C537590006437F2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FDE19891C537590006437F2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1FDE19A21C537590006437F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1FDE19A31C537590006437F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1FDE19A51C537590006437F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SKOctagonSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fumiko.SKOctagonSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1FDE19A61C537590006437F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SKOctagonSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fumiko.SKOctagonSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1FDE19A81C537590006437F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SKOctagonSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fumiko.SKOctagonSampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SKOctagonSample.app/SKOctagonSample";
+			};
+			name = Debug;
+		};
+		1FDE19A91C537590006437F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SKOctagonSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fumiko.SKOctagonSampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SKOctagonSample.app/SKOctagonSample";
+			};
+			name = Release;
+		};
+		1FDE19AB1C537590006437F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SKOctagonSampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fumiko.SKOctagonSampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SKOctagonSample;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		1FDE19AC1C537590006437F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SKOctagonSampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fumiko.SKOctagonSampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SKOctagonSample;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FDE19721C53758F006437F2 /* Build configuration list for PBXProject "SKOctagonSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FDE19A21C537590006437F2 /* Debug */,
+				1FDE19A31C537590006437F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FDE19A41C537590006437F2 /* Build configuration list for PBXNativeTarget "SKOctagonSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FDE19A51C537590006437F2 /* Debug */,
+				1FDE19A61C537590006437F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1FDE19A71C537590006437F2 /* Build configuration list for PBXNativeTarget "SKOctagonSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FDE19A81C537590006437F2 /* Debug */,
+				1FDE19A91C537590006437F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1FDE19AA1C537590006437F2 /* Build configuration list for PBXNativeTarget "SKOctagonSampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FDE19AB1C537590006437F2 /* Debug */,
+				1FDE19AC1C537590006437F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1FDE196F1C53758F006437F2 /* Project object */;
+}
