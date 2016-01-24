@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FD22F451C54F30200A99CF3 /* maru_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FD22F411C54F30200A99CF3 /* maru_blue.png */; };
+		1FD22F461C54F30200A99CF3 /* maru_green_low.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FD22F421C54F30200A99CF3 /* maru_green_low.png */; };
+		1FD22F471C54F30200A99CF3 /* maru_pink_low.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FD22F431C54F30200A99CF3 /* maru_pink_low.png */; };
+		1FD22F481C54F30200A99CF3 /* maru_yellow_low.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FD22F441C54F30200A99CF3 /* maru_yellow_low.png */; };
 		1FDE197C1C537590006437F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE197B1C537590006437F2 /* main.m */; };
 		1FDE197F1C537590006437F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE197E1C537590006437F2 /* AppDelegate.m */; };
 		1FDE19821C537590006437F2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE19811C537590006437F2 /* ViewController.m */; };
@@ -39,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1FD22F411C54F30200A99CF3 /* maru_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maru_blue.png; sourceTree = "<group>"; };
+		1FD22F421C54F30200A99CF3 /* maru_green_low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maru_green_low.png; sourceTree = "<group>"; };
+		1FD22F431C54F30200A99CF3 /* maru_pink_low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maru_pink_low.png; sourceTree = "<group>"; };
+		1FD22F441C54F30200A99CF3 /* maru_yellow_low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maru_yellow_low.png; sourceTree = "<group>"; };
 		1FDE19771C537590006437F2 /* SKOctagonSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKOctagonSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FDE197B1C537590006437F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1FDE197D1C537590006437F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +99,10 @@
 		1FDE196E1C53758F006437F2 = {
 			isa = PBXGroup;
 			children = (
+				1FD22F411C54F30200A99CF3 /* maru_blue.png */,
+				1FD22F421C54F30200A99CF3 /* maru_green_low.png */,
+				1FD22F431C54F30200A99CF3 /* maru_pink_low.png */,
+				1FD22F441C54F30200A99CF3 /* maru_yellow_low.png */,
 				1FDE19B41C5394BD006437F2 /* SpriteKit.framework */,
 				1FDE19AD1C5379DC006437F2 /* gameView_board.png */,
 				1FDE19791C537590006437F2 /* SKOctagonSample */,
@@ -260,6 +272,10 @@
 			files = (
 				1FDE198A1C537590006437F2 /* LaunchScreen.storyboard in Resources */,
 				1FDE19AE1C5379DC006437F2 /* gameView_board.png in Resources */,
+				1FD22F481C54F30200A99CF3 /* maru_yellow_low.png in Resources */,
+				1FD22F461C54F30200A99CF3 /* maru_green_low.png in Resources */,
+				1FD22F471C54F30200A99CF3 /* maru_pink_low.png in Resources */,
+				1FD22F451C54F30200A99CF3 /* maru_blue.png in Resources */,
 				1FDE19B31C537CBE006437F2 /* config.json in Resources */,
 				1FDE19871C537590006437F2 /* Assets.xcassets in Resources */,
 				1FDE19851C537590006437F2 /* Main.storyboard in Resources */,
@@ -516,6 +532,7 @@
 				1FDE19A61C537590006437F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FDE19A71C537590006437F2 /* Build configuration list for PBXNativeTarget "SKOctagonSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +541,7 @@
 				1FDE19A91C537590006437F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FDE19AA1C537590006437F2 /* Build configuration list for PBXNativeTarget "SKOctagonSampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +550,7 @@
 				1FDE19AC1C537590006437F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

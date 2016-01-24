@@ -14,6 +14,13 @@
 static const uint32_t blockCategory = 0x1 << 0; //*1の意味
 static const uint32_t ballCategory = 0x1 << 1; //*2だよ
 
+/*
+ ボールを画像に変更する
+ パドルをあれして透明にして反射させる
+ SKscene自体を正方形にしたら跳ね返るのではないのではないかと思ったよ
+ viewにSKsceneつけられるかどうか、SKの中で判定している変数をラベル(UIView上)に反映させられるか
+ */
+
 
 @implementation SKPlayScene
 
@@ -71,8 +78,16 @@ static NSDictionary *config = nil;
 # pragma mark - Ball
 
 - (void)addBall {
-    CGFloat radius = [config[@"ball"][@"radius"] floatValue];
+//    CGFloat radius = [config[@"ball"][@"radius"] floatValue];
+    SKSpriteNode *maru = [SKSpriteNode spriteNodeWithImageNamed:@"maru_blue"];
+    maru.name = @"maru";
+    maru.position = CGPointMake(0 +160, 124 +160);
+    maru.size = CGSizeMake(50, 50);
     
+    [self addChild:maru];
+
+    
+    /*
     SKShapeNode *ball = [SKShapeNode node];
     ball.name = @"ball";
     ball.position = CGPointMake(CGRectGetMidX([self paddleNode].frame), CGRectGetMaxY([self paddleNode].frame) + radius);
@@ -86,6 +101,7 @@ static NSDictionary *config = nil;
     CGPathRelease(path);
     
     [self addChild:ball];
+     */
     
 }
 
