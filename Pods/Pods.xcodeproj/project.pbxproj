@@ -1,0 +1,713 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00322F42323E36D618DDA9B6FDF3D5FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FB76791BA9DD09BFC00A8BA33471D0 /* Foundation.framework */; };
+		239A5EF28B1F38442D42262289FD0B82 /* YMCSKNode+PhysicsDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DF3AD56B34CA98997759B6041A8AD55 /* YMCSKNode+PhysicsDebug.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B5CCA296CEABA30ED7B4FC7E869A902 /* YMCPhysicsDebugProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 03566384B21B11D5A54F946BA2C68906 /* YMCPhysicsDebugProperties.m */; };
+		2E9D8242013424129279404ABFDE4BCC /* Pods-SKOctagonSampleTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 892DE328C797E17401F86BD1ABDE6ADF /* Pods-SKOctagonSampleTests-dummy.m */; };
+		452DE8B6C2C520AF271043F7C5AAE083 /* YMCPhysicsDebugProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 99C7C98A23C5DD57CF7F3307BAC9389B /* YMCPhysicsDebugProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50E94B60F29EA56D448E283BD933B4AA /* Pods-SKOctagonSample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F188627005E98A2DABF6D83713AA34E8 /* Pods-SKOctagonSample-dummy.m */; };
+		54B0CD7318DAFB850C54D6D1480361C7 /* Pods-SKOctagonSampleUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A278E8CF5A8565914BAFAE96BB6091 /* Pods-SKOctagonSampleUITests-dummy.m */; };
+		6040676A2EB7815A651F6EBD6C2E9BCA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FB76791BA9DD09BFC00A8BA33471D0 /* Foundation.framework */; };
+		610F543A9ADD825C5B1C4F1F992FCAE6 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D610C632D76BC6736BD128E2D20732EB /* SpriteKit.framework */; };
+		61B65F1F00A2C4A06FE7BE096F59A933 /* YMCSKPhysicsBody+Swizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = E4AA456633397E1890865478FCF05AE2 /* YMCSKPhysicsBody+Swizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		647CC2151424523793D6F393AE66FCF9 /* YMCPhysicsDebugger.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E92611A2C32666E77A6A4E13A3B0598 /* YMCPhysicsDebugger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78A0BFB10C259FC947BC133AF4E01DAB /* YMCPhysicsDebugger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E5A4FEEC548D8A0F77B1E328F6F08 /* YMCPhysicsDebugger.m */; };
+		ADED679653860A488D5C7E6567F4C81A /* YMCSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = B9A7BFBE4B178F07001DB152066DCEAC /* YMCSwizzler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB1B504393EEC238C73F9A35228E48C2 /* YMCSKPhysicsBody+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1624D2B46FDF592515040AC2701D530C /* YMCSKPhysicsBody+Swizzle.m */; };
+		CB556AE21CE972526D9274A20E420ABA /* YMCSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7618626AAA07DFD8193B58767CC6C48A /* YMCSwizzler.m */; };
+		D22E5DF1427094580C54990CEFE0E6DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FB76791BA9DD09BFC00A8BA33471D0 /* Foundation.framework */; };
+		E41016634D248C08ECEE2370C2BF104C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FB76791BA9DD09BFC00A8BA33471D0 /* Foundation.framework */; };
+		F099824D0C17904C9EE79BC377523EC7 /* YMCSKNode+PhysicsDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C0C63F731481CC643873744F670CE4 /* YMCSKNode+PhysicsDebug.m */; };
+		F8E161648D7A0EF0B5A12E2036392D54 /* PhysicsDebugger-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE98FE39BDCF7198606816803BA65EE8 /* PhysicsDebugger-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		36EA577EB61504176B3CDB96FB84D821 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F390033ECA8523BF80427AE92A7E12F9;
+			remoteInfo = PhysicsDebugger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00C0C63F731481CC643873744F670CE4 /* YMCSKNode+PhysicsDebug.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "YMCSKNode+PhysicsDebug.m"; path = "PhysicsDebugger/YMCPhysicsDebugger/YMCSKNode+PhysicsDebug.m"; sourceTree = "<group>"; };
+		03566384B21B11D5A54F946BA2C68906 /* YMCPhysicsDebugProperties.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YMCPhysicsDebugProperties.m; path = PhysicsDebugger/YMCPhysicsDebugger/YMCPhysicsDebugProperties.m; sourceTree = "<group>"; };
+		1029A4A5FC235325FFC945199499FEB4 /* Pods-SKOctagonSampleUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SKOctagonSampleUITests-resources.sh"; sourceTree = "<group>"; };
+		10E90171063C61527824F8CE38D642D8 /* Pods-SKOctagonSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SKOctagonSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1382B4695A0CF0B61CCE8BAE01D5C570 /* Pods-SKOctagonSample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SKOctagonSample-frameworks.sh"; sourceTree = "<group>"; };
+		1624D2B46FDF592515040AC2701D530C /* YMCSKPhysicsBody+Swizzle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "YMCSKPhysicsBody+Swizzle.m"; path = "PhysicsDebugger/YMCPhysicsDebugger/YMCSKPhysicsBody+Swizzle.m"; sourceTree = "<group>"; };
+		1A0F77EF600927C5AC3B80179A25AF16 /* libPods-SKOctagonSampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKOctagonSampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E64F18B7084534FC83A70DA4DFC4F7D /* Pods-SKOctagonSample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SKOctagonSample-resources.sh"; sourceTree = "<group>"; };
+		25EC3D979395B0EE32336DD8E5F57175 /* Pods-SKOctagonSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SKOctagonSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2AF5A0F3A4B4E28E66643C60C496737F /* libPods-SKOctagonSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKOctagonSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E2E5A4FEEC548D8A0F77B1E328F6F08 /* YMCPhysicsDebugger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YMCPhysicsDebugger.m; path = PhysicsDebugger/YMCPhysicsDebugger/YMCPhysicsDebugger.m; sourceTree = "<group>"; };
+		408A08A0FB71A42B2E5C4C71197F4898 /* Pods-SKOctagonSampleUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SKOctagonSampleUITests-frameworks.sh"; sourceTree = "<group>"; };
+		4C8009D930B374F3E7A634D5CAECDE50 /* Pods-SKOctagonSample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SKOctagonSample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5CF1831FBB11DE752E9C92990F11CE56 /* PhysicsDebugger.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PhysicsDebugger.xcconfig; sourceTree = "<group>"; };
+		75C1629B8F3FB22AF3A502C2EC7BC9F4 /* libPhysicsDebugger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhysicsDebugger.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7618626AAA07DFD8193B58767CC6C48A /* YMCSwizzler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YMCSwizzler.m; path = PhysicsDebugger/YMCPhysicsDebugger/YMCSwizzler.m; sourceTree = "<group>"; };
+		79F55AA034204CF3461F75069B372978 /* Pods-SKOctagonSampleUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SKOctagonSampleUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		7A0849ABB10DBD56C1AF4B31265C1491 /* Pods-SKOctagonSampleTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SKOctagonSampleTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7DF3AD56B34CA98997759B6041A8AD55 /* YMCSKNode+PhysicsDebug.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "YMCSKNode+PhysicsDebug.h"; path = "PhysicsDebugger/YMCPhysicsDebugger/YMCSKNode+PhysicsDebug.h"; sourceTree = "<group>"; };
+		83F79810F8F0ECD358E4A2C74AC3F273 /* Pods-SKOctagonSampleTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SKOctagonSampleTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		88FB76791BA9DD09BFC00A8BA33471D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		892DE328C797E17401F86BD1ABDE6ADF /* Pods-SKOctagonSampleTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SKOctagonSampleTests-dummy.m"; sourceTree = "<group>"; };
+		8984A46FADD04A80A4108AF308CE0360 /* Pods-SKOctagonSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SKOctagonSampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		8ABC771B7855D5705427BA426B54E71A /* libPods-SKOctagonSampleUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKOctagonSampleUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B525ABADABEB7DD6B208ACCBBE53911 /* Pods-SKOctagonSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SKOctagonSample.debug.xcconfig"; sourceTree = "<group>"; };
+		8E92611A2C32666E77A6A4E13A3B0598 /* YMCPhysicsDebugger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YMCPhysicsDebugger.h; path = PhysicsDebugger/YMCPhysicsDebugger/YMCPhysicsDebugger.h; sourceTree = "<group>"; };
+		99C7C98A23C5DD57CF7F3307BAC9389B /* YMCPhysicsDebugProperties.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YMCPhysicsDebugProperties.h; path = PhysicsDebugger/YMCPhysicsDebugger/YMCPhysicsDebugProperties.h; sourceTree = "<group>"; };
+		A22ABC38A1735A3CA9DCF77CEBC5A369 /* Pods-SKOctagonSampleTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SKOctagonSampleTests-resources.sh"; sourceTree = "<group>"; };
+		A79B007AF23D3992016C60302F96727D /* PhysicsDebugger-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhysicsDebugger-prefix.pch"; sourceTree = "<group>"; };
+		B9A7BFBE4B178F07001DB152066DCEAC /* YMCSwizzler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YMCSwizzler.h; path = PhysicsDebugger/YMCPhysicsDebugger/YMCSwizzler.h; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BD1DDBE66747A6A97398B63143A68AD6 /* Pods-SKOctagonSampleUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SKOctagonSampleUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CE98FE39BDCF7198606816803BA65EE8 /* PhysicsDebugger-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PhysicsDebugger-dummy.m"; sourceTree = "<group>"; };
+		D1CC7A8AD56617E97716A265C9E738FC /* Pods-SKOctagonSampleTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SKOctagonSampleTests-frameworks.sh"; sourceTree = "<group>"; };
+		D610C632D76BC6736BD128E2D20732EB /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/SpriteKit.framework; sourceTree = DEVELOPER_DIR; };
+		E142FE96F9CF46F19F91CC97D2DF2042 /* Pods-SKOctagonSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SKOctagonSample.release.xcconfig"; sourceTree = "<group>"; };
+		E4AA456633397E1890865478FCF05AE2 /* YMCSKPhysicsBody+Swizzle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "YMCSKPhysicsBody+Swizzle.h"; path = "PhysicsDebugger/YMCPhysicsDebugger/YMCSKPhysicsBody+Swizzle.h"; sourceTree = "<group>"; };
+		F188627005E98A2DABF6D83713AA34E8 /* Pods-SKOctagonSample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SKOctagonSample-dummy.m"; sourceTree = "<group>"; };
+		F5A278E8CF5A8565914BAFAE96BB6091 /* Pods-SKOctagonSampleUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SKOctagonSampleUITests-dummy.m"; sourceTree = "<group>"; };
+		FC8B1C95F7DD867C0AEC7E132AFC84C9 /* Pods-SKOctagonSampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SKOctagonSampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FECA1773A397F4F59DCAB862A425421F /* Pods-SKOctagonSample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SKOctagonSample-acknowledgements.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		20E590788E9000764839E9F133F59D3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E41016634D248C08ECEE2370C2BF104C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71BBE64ABF438AF49234913F9AC88EFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6040676A2EB7815A651F6EBD6C2E9BCA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		756F4B488509BDAB259B2630C4FCAFEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00322F42323E36D618DDA9B6FDF3D5FB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3F8E4892FF824D383536800B371F464 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D22E5DF1427094580C54990CEFE0E6DD /* Foundation.framework in Frameworks */,
+				610F543A9ADD825C5B1C4F1F992FCAE6 /* SpriteKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0353478F78EFA11FBF92336BDC62F956 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5CF1831FBB11DE752E9C92990F11CE56 /* PhysicsDebugger.xcconfig */,
+				CE98FE39BDCF7198606816803BA65EE8 /* PhysicsDebugger-dummy.m */,
+				A79B007AF23D3992016C60302F96727D /* PhysicsDebugger-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PhysicsDebugger";
+			sourceTree = "<group>";
+		};
+		0F32D1A9E7FAB027243520F7E5A90B67 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				88FB76791BA9DD09BFC00A8BA33471D0 /* Foundation.framework */,
+				D610C632D76BC6736BD128E2D20732EB /* SpriteKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		1DCB87FB6EF4FF348D2D17A1696A1985 /* Pods-SKOctagonSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A0849ABB10DBD56C1AF4B31265C1491 /* Pods-SKOctagonSampleTests-acknowledgements.markdown */,
+				83F79810F8F0ECD358E4A2C74AC3F273 /* Pods-SKOctagonSampleTests-acknowledgements.plist */,
+				892DE328C797E17401F86BD1ABDE6ADF /* Pods-SKOctagonSampleTests-dummy.m */,
+				D1CC7A8AD56617E97716A265C9E738FC /* Pods-SKOctagonSampleTests-frameworks.sh */,
+				A22ABC38A1735A3CA9DCF77CEBC5A369 /* Pods-SKOctagonSampleTests-resources.sh */,
+				10E90171063C61527824F8CE38D642D8 /* Pods-SKOctagonSampleTests.debug.xcconfig */,
+				8984A46FADD04A80A4108AF308CE0360 /* Pods-SKOctagonSampleTests.release.xcconfig */,
+			);
+			name = "Pods-SKOctagonSampleTests";
+			path = "Target Support Files/Pods-SKOctagonSampleTests";
+			sourceTree = "<group>";
+		};
+		2AD1E06AAFB5A71F6134FD5C61070395 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B4FF7B94AF60CC334507CAE50097BB1D /* Pods-SKOctagonSample */,
+				1DCB87FB6EF4FF348D2D17A1696A1985 /* Pods-SKOctagonSampleTests */,
+				A65B4ADCAEE05727FDDE166140927C9B /* Pods-SKOctagonSampleUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		38A84619B7ECD0F15BF54AFD41489CA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				75C1629B8F3FB22AF3A502C2EC7BC9F4 /* libPhysicsDebugger.a */,
+				2AF5A0F3A4B4E28E66643C60C496737F /* libPods-SKOctagonSample.a */,
+				1A0F77EF600927C5AC3B80179A25AF16 /* libPods-SKOctagonSampleTests.a */,
+				8ABC771B7855D5705427BA426B54E71A /* libPods-SKOctagonSampleUITests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F32D1A9E7FAB027243520F7E5A90B67 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				DD780C41DA1A62E55487F88008FBC33F /* Pods */,
+				38A84619B7ECD0F15BF54AFD41489CA4 /* Products */,
+				2AD1E06AAFB5A71F6134FD5C61070395 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A65B4ADCAEE05727FDDE166140927C9B /* Pods-SKOctagonSampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BD1DDBE66747A6A97398B63143A68AD6 /* Pods-SKOctagonSampleUITests-acknowledgements.markdown */,
+				79F55AA034204CF3461F75069B372978 /* Pods-SKOctagonSampleUITests-acknowledgements.plist */,
+				F5A278E8CF5A8565914BAFAE96BB6091 /* Pods-SKOctagonSampleUITests-dummy.m */,
+				408A08A0FB71A42B2E5C4C71197F4898 /* Pods-SKOctagonSampleUITests-frameworks.sh */,
+				1029A4A5FC235325FFC945199499FEB4 /* Pods-SKOctagonSampleUITests-resources.sh */,
+				FC8B1C95F7DD867C0AEC7E132AFC84C9 /* Pods-SKOctagonSampleUITests.debug.xcconfig */,
+				25EC3D979395B0EE32336DD8E5F57175 /* Pods-SKOctagonSampleUITests.release.xcconfig */,
+			);
+			name = "Pods-SKOctagonSampleUITests";
+			path = "Target Support Files/Pods-SKOctagonSampleUITests";
+			sourceTree = "<group>";
+		};
+		B4FF7B94AF60CC334507CAE50097BB1D /* Pods-SKOctagonSample */ = {
+			isa = PBXGroup;
+			children = (
+				4C8009D930B374F3E7A634D5CAECDE50 /* Pods-SKOctagonSample-acknowledgements.markdown */,
+				FECA1773A397F4F59DCAB862A425421F /* Pods-SKOctagonSample-acknowledgements.plist */,
+				F188627005E98A2DABF6D83713AA34E8 /* Pods-SKOctagonSample-dummy.m */,
+				1382B4695A0CF0B61CCE8BAE01D5C570 /* Pods-SKOctagonSample-frameworks.sh */,
+				1E64F18B7084534FC83A70DA4DFC4F7D /* Pods-SKOctagonSample-resources.sh */,
+				8B525ABADABEB7DD6B208ACCBBE53911 /* Pods-SKOctagonSample.debug.xcconfig */,
+				E142FE96F9CF46F19F91CC97D2DF2042 /* Pods-SKOctagonSample.release.xcconfig */,
+			);
+			name = "Pods-SKOctagonSample";
+			path = "Target Support Files/Pods-SKOctagonSample";
+			sourceTree = "<group>";
+		};
+		C2B05C2D07263EA2BBE1590B7FD5A946 /* PhysicsDebugger */ = {
+			isa = PBXGroup;
+			children = (
+				8E92611A2C32666E77A6A4E13A3B0598 /* YMCPhysicsDebugger.h */,
+				3E2E5A4FEEC548D8A0F77B1E328F6F08 /* YMCPhysicsDebugger.m */,
+				99C7C98A23C5DD57CF7F3307BAC9389B /* YMCPhysicsDebugProperties.h */,
+				03566384B21B11D5A54F946BA2C68906 /* YMCPhysicsDebugProperties.m */,
+				7DF3AD56B34CA98997759B6041A8AD55 /* YMCSKNode+PhysicsDebug.h */,
+				00C0C63F731481CC643873744F670CE4 /* YMCSKNode+PhysicsDebug.m */,
+				E4AA456633397E1890865478FCF05AE2 /* YMCSKPhysicsBody+Swizzle.h */,
+				1624D2B46FDF592515040AC2701D530C /* YMCSKPhysicsBody+Swizzle.m */,
+				B9A7BFBE4B178F07001DB152066DCEAC /* YMCSwizzler.h */,
+				7618626AAA07DFD8193B58767CC6C48A /* YMCSwizzler.m */,
+				0353478F78EFA11FBF92336BDC62F956 /* Support Files */,
+			);
+			path = PhysicsDebugger;
+			sourceTree = "<group>";
+		};
+		DD780C41DA1A62E55487F88008FBC33F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2B05C2D07263EA2BBE1590B7FD5A946 /* PhysicsDebugger */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		90A8B1EE6813B381B9F59C5D28B22738 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				647CC2151424523793D6F393AE66FCF9 /* YMCPhysicsDebugger.h in Headers */,
+				452DE8B6C2C520AF271043F7C5AAE083 /* YMCPhysicsDebugProperties.h in Headers */,
+				239A5EF28B1F38442D42262289FD0B82 /* YMCSKNode+PhysicsDebug.h in Headers */,
+				61B65F1F00A2C4A06FE7BE096F59A933 /* YMCSKPhysicsBody+Swizzle.h in Headers */,
+				ADED679653860A488D5C7E6567F4C81A /* YMCSwizzler.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1FF2F2D00CC15C3F5ECA84EB71103A71 /* Pods-SKOctagonSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDA85ADAF90A77E889B9BE31AEA6CD39 /* Build configuration list for PBXNativeTarget "Pods-SKOctagonSampleTests" */;
+			buildPhases = (
+				68E773A2DF4F05CBEA468E29A6E109A0 /* Sources */,
+				20E590788E9000764839E9F133F59D3F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SKOctagonSampleTests";
+			productName = "Pods-SKOctagonSampleTests";
+			productReference = 1A0F77EF600927C5AC3B80179A25AF16 /* libPods-SKOctagonSampleTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7876462D4297349B7363AF8F09EC6957 /* Pods-SKOctagonSampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A90BD75D44FED7FB873BB68EDC53FC81 /* Build configuration list for PBXNativeTarget "Pods-SKOctagonSampleUITests" */;
+			buildPhases = (
+				AFA19E5A6D2639317D07EB222619B667 /* Sources */,
+				71BBE64ABF438AF49234913F9AC88EFF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SKOctagonSampleUITests";
+			productName = "Pods-SKOctagonSampleUITests";
+			productReference = 8ABC771B7855D5705427BA426B54E71A /* libPods-SKOctagonSampleUITests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		8473BCEE29517FE684613176A5EF85A6 /* Pods-SKOctagonSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA2A589B834F1A7C9CA3F73FB5CBCD11 /* Build configuration list for PBXNativeTarget "Pods-SKOctagonSample" */;
+			buildPhases = (
+				B1D93166DEE7BA0F3FA2B4278BB90974 /* Sources */,
+				756F4B488509BDAB259B2630C4FCAFEA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE380255258B1FC9CF0B96A042C8DC88 /* PBXTargetDependency */,
+			);
+			name = "Pods-SKOctagonSample";
+			productName = "Pods-SKOctagonSample";
+			productReference = 2AF5A0F3A4B4E28E66643C60C496737F /* libPods-SKOctagonSample.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F390033ECA8523BF80427AE92A7E12F9 /* PhysicsDebugger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F21C20676E7BA977D8B44AB724298A0 /* Build configuration list for PBXNativeTarget "PhysicsDebugger" */;
+			buildPhases = (
+				501D97397D91FC12AD6E639DE8012F91 /* Sources */,
+				E3F8E4892FF824D383536800B371F464 /* Frameworks */,
+				90A8B1EE6813B381B9F59C5D28B22738 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhysicsDebugger;
+			productName = PhysicsDebugger;
+			productReference = 75C1629B8F3FB22AF3A502C2EC7BC9F4 /* libPhysicsDebugger.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 38A84619B7ECD0F15BF54AFD41489CA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F390033ECA8523BF80427AE92A7E12F9 /* PhysicsDebugger */,
+				8473BCEE29517FE684613176A5EF85A6 /* Pods-SKOctagonSample */,
+				1FF2F2D00CC15C3F5ECA84EB71103A71 /* Pods-SKOctagonSampleTests */,
+				7876462D4297349B7363AF8F09EC6957 /* Pods-SKOctagonSampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		501D97397D91FC12AD6E639DE8012F91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8E161648D7A0EF0B5A12E2036392D54 /* PhysicsDebugger-dummy.m in Sources */,
+				78A0BFB10C259FC947BC133AF4E01DAB /* YMCPhysicsDebugger.m in Sources */,
+				2B5CCA296CEABA30ED7B4FC7E869A902 /* YMCPhysicsDebugProperties.m in Sources */,
+				F099824D0C17904C9EE79BC377523EC7 /* YMCSKNode+PhysicsDebug.m in Sources */,
+				CB1B504393EEC238C73F9A35228E48C2 /* YMCSKPhysicsBody+Swizzle.m in Sources */,
+				CB556AE21CE972526D9274A20E420ABA /* YMCSwizzler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68E773A2DF4F05CBEA468E29A6E109A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E9D8242013424129279404ABFDE4BCC /* Pods-SKOctagonSampleTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFA19E5A6D2639317D07EB222619B667 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54B0CD7318DAFB850C54D6D1480361C7 /* Pods-SKOctagonSampleUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1D93166DEE7BA0F3FA2B4278BB90974 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50E94B60F29EA56D448E283BD933B4AA /* Pods-SKOctagonSample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DE380255258B1FC9CF0B96A042C8DC88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PhysicsDebugger;
+			target = F390033ECA8523BF80427AE92A7E12F9 /* PhysicsDebugger */;
+			targetProxy = 36EA577EB61504176B3CDB96FB84D821 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2B203F5920726813FAABCE156D2385FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CF1831FBB11DE752E9C92990F11CE56 /* PhysicsDebugger.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PhysicsDebugger/PhysicsDebugger-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6DEFBD1D39CAC27575D8C541A177280F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CF1831FBB11DE752E9C92990F11CE56 /* PhysicsDebugger.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PhysicsDebugger/PhysicsDebugger-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		70ED7BA863FEDDFCA6088A0E04B5409E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B066BA18BAE16A5F993FF753FC2B61DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10E90171063C61527824F8CE38D642D8 /* Pods-SKOctagonSampleTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B65F8D12BBF4E69195448C3E667C8E1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8984A46FADD04A80A4108AF308CE0360 /* Pods-SKOctagonSampleTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BB66EA5579D12DB779DC07ECD650DF68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B525ABADABEB7DD6B208ACCBBE53911 /* Pods-SKOctagonSample.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DA03A0A50BECC6609762406B44878BEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25EC3D979395B0EE32336DD8E5F57175 /* Pods-SKOctagonSampleUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E1B685D9073CDF53C548503CD4FD8B53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		EAB3B6EEDCA80F81F78A7B6CF89729EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC8B1C95F7DD867C0AEC7E132AFC84C9 /* Pods-SKOctagonSampleUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		ED9C7E743FEDC5C7C98F6AD627C4A871 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E142FE96F9CF46F19F91CC97D2DF2042 /* Pods-SKOctagonSample.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1B685D9073CDF53C548503CD4FD8B53 /* Debug */,
+				70ED7BA863FEDDFCA6088A0E04B5409E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F21C20676E7BA977D8B44AB724298A0 /* Build configuration list for PBXNativeTarget "PhysicsDebugger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B203F5920726813FAABCE156D2385FC /* Debug */,
+				6DEFBD1D39CAC27575D8C541A177280F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A90BD75D44FED7FB873BB68EDC53FC81 /* Build configuration list for PBXNativeTarget "Pods-SKOctagonSampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAB3B6EEDCA80F81F78A7B6CF89729EB /* Debug */,
+				DA03A0A50BECC6609762406B44878BEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA2A589B834F1A7C9CA3F73FB5CBCD11 /* Build configuration list for PBXNativeTarget "Pods-SKOctagonSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB66EA5579D12DB779DC07ECD650DF68 /* Debug */,
+				ED9C7E743FEDC5C7C98F6AD627C4A871 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDA85ADAF90A77E889B9BE31AEA6CD39 /* Build configuration list for PBXNativeTarget "Pods-SKOctagonSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B066BA18BAE16A5F993FF753FC2B61DF /* Debug */,
+				B65F8D12BBF4E69195448C3E667C8E1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

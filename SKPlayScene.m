@@ -7,6 +7,7 @@
 //
 
 #import "SKPlayScene.h"
+#import "YMCPhysicsDebugger.h"
 
 //<<...2でかけます
 //static const は定数(変数じゃないやつ)/そのクラス内で使われる
@@ -15,21 +16,32 @@ static const uint32_t blockCategory = 0x1 << 0; //*1の意味
 static const uint32_t ballCategory = 0x1 << 1; //*2だよ
 
 /*
- ボールを画像に変更する
+ __doneボールを画像に変更する
+ ボールに重力
  パドルをあれして透明にして反射させる
  SKscene自体を正方形にしたら跳ね返るのではないのではないかと思ったよ
  viewにSKsceneつけられるかどうか、SKの中で判定している変数をラベル(UIView上)に反映させられるか
+ maruを4個かつランダムな色に
  */
 
+@interface SKPlayScene() <SKPhysicsContactDelegate>
 
+@end
 @implementation SKPlayScene
 
 - (id)initWithSize:(CGSize)size {
     self = [super initWithSize:size];
     if (self) {
+        [YMCPhysicsDebugger init];
+    
         [self addPaddle];
         [self makeBoard];
-        
+        [self drawPhysicsBodies];
+        //physicsBodyを設定する/重力が使えるようになる
+        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+        self.physicsWorld.contactDelegate = self;  //物理演算をselfの中でやるよ。これがないと
+    
+        //ボールがなければボールを生成
         if (![self ballNode]) {
             [self addBall];
         }
@@ -78,11 +90,26 @@ static NSDictionary *config = nil;
 # pragma mark - Ball
 
 - (void)addBall {
+    //config.jsonにある重力の大きさの値
+    CGFloat velocityX = [config[@"ball"][@"velocity"][@"x"] floatValue];
+    CGFloat velocityY = [config[@"ball"][@"velocity"][@"y"] floatValue];
+
 //    CGFloat radius = [config[@"ball"][@"radius"] floatValue];
     SKSpriteNode *maru = [SKSpriteNode spriteNodeWithImageNamed:@"maru_blue"];
     maru.name = @"maru";
     maru.position = CGPointMake(0 +160, 124 +160);
     maru.size = CGSizeMake(50, 50);
+    
+    //physicsBodyを使うことで重力環境になり、衝突が可能になる
+//    maru.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:radius]; //丸さ
+    maru.physicsBody.affectedByGravity = NO;  //ボールは固定はしないけど、重力を無視するため/重力の影響を受けるかどうか
+    maru.physicsBody.velocity = CGVectorMake(velocityX, velocityY);  //velocityで力を加えてる/加える力の大きさ
+    maru.physicsBody.restitution = 1.0f; //a反発係数を1に
+    maru.physicsBody.linearDamping = 0;  //b空気抵抗を0
+    maru.physicsBody.friction = 0;       //c摩擦を0...b.cによって跳ね返り(a)を一定に保つ
+    maru.physicsBody.usesPreciseCollisionDetection = YES;  //yesで衝突判定が可能に
+    maru.physicsBody.categoryBitMask = ballCategory;       //categoryBitMaskはそれが何のクラスか判別する。contactTestBitMaskに設定したものとcontact(接触)した場合didBeginContact:が呼ばれる
+    maru.physicsBody.contactTestBitMask = blockCategory;  //contactTestBitMaskにblockCategoryを設定してる
     
     [self addChild:maru];
 
@@ -111,24 +138,47 @@ static NSDictionary *config = nil;
 
 
 # pragma mark - Touch
-/*
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (![self ballNode]) {
-        [self addBall];
-        return;
-    }
+
+    //ボールがあればゲーム中だから、パドルを等速で動かす
     UITouch *touch = [touches anyObject];
- 
-    //パドルを動かすためのコード
     CGPoint locaiton = [touch locationInNode:self];
+    
+    /*
+     --------パドルの移動について---------
     CGFloat speed = [config[@"paddle"][@"speed"] floatValue];
     CGFloat x = locaiton.x;
     CGFloat diff = abs(x - [self paddleNode].position.x);
     CGFloat duration = speed * diff;
     SKAction *move = [SKAction moveToX:x duration:duration];
     [[self paddleNode] runAction:move];
+     */
 }
-*/
+
+
+
+
+# pragma mark - SKPhysicsContactDelegate
+
+- (void)didBeginContact:(SKPhysicsContact *)contact {
+    SKPhysicsBody *firstBody, *secondBody;
+    
+    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask) {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    } else {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
+    /*
+    if (firstBody.categoryBitMask & blockCategory) {
+        if (secondBody.categoryBitMask & ballCategory) {
+            [self decreaseBlockLife:firstBody.node];
+        }
+    }
+     */
+}
 
 
 @end
