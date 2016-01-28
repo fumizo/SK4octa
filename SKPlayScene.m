@@ -13,11 +13,11 @@
 //static const は定数(変数じゃないやつ)/そのクラス内で使われる
 //uint32_tは4バイト消費する
 static const uint32_t blockCategory = 0x1 << 0; //*1の意味
-static const uint32_t ballCategory = 0x1 << 1; //*2だよ
+static const uint32_t ballCategorySKPhysics = 0x1 << 1; //*2だよ
 
 /*
  __doneボールを画像に変更する
- ボールに重力
+ __doneボールに重力
  パドルをあれして透明にして反射させる
  SKscene自体を正方形にしたら跳ね返るのではないのではないかと思ったよ
  viewにSKsceneつけられるかどうか、SKの中で判定している変数をラベル(UIView上)に反映させられるか
@@ -91,7 +91,7 @@ static NSDictionary *config = nil;
 
 - (void)addBall {
     //config.jsonにある重力の大きさの値
-    CGFloat velocityX = [config[@"maru"][@"velocity"][@"x"] floatValue];
+    CGFloat velocityX = [config[@"maru"][@"velocity"][@"x"] floatValue]; //このふたつの値を変えることでスピードを調整できる
     CGFloat velocityY = [config[@"maru"][@"velocity"][@"y"] floatValue];
 
     CGFloat radius = [config[@"maru"][@"radius"] floatValue];
@@ -108,8 +108,9 @@ static NSDictionary *config = nil;
     maru.physicsBody.linearDamping = 0;  //b空気抵抗を0
     maru.physicsBody.friction = 0;       //c摩擦を0...b.cによって跳ね返り(a)を一定に保つ
     maru.physicsBody.usesPreciseCollisionDetection = YES;  //yesで衝突判定が可能に
-    maru.physicsBody.categoryBitMask = ballCategory;       //categoryBitMaskはそれが何のクラスか判別する。contactTestBitMaskに設定したものとcontact(接触)した場合didBeginContact:が呼ばれる
+    maru.physicsBody.categoryBitMask = blockCategory;       //categoryBitMaskはそれが何のクラスか判別する。contactTestBitMaskに設定したものとcontact(接触)した場合didBeginContact:が呼ばれる
     maru.physicsBody.contactTestBitMask = blockCategory;  //contactTestBitMaskにblockCategoryを設定してる
+//    maru.physicsBody.mass = 10.0; //重さを指定してるけど、重力は受けないことになってるから意味ない
     
     [self addChild:maru];
 
