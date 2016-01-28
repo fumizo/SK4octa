@@ -12,7 +12,7 @@
         "height" : 14.0,
         "y" : 40.0,
     },
-    "ball" : {
+    "maru" : {
         "radius" : 6.0,
         "velocity" : {
             "x" : 50.0,

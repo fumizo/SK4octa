@@ -91,17 +91,17 @@ static NSDictionary *config = nil;
 
 - (void)addBall {
     //config.jsonにある重力の大きさの値
-    CGFloat velocityX = [config[@"ball"][@"velocity"][@"x"] floatValue];
-    CGFloat velocityY = [config[@"ball"][@"velocity"][@"y"] floatValue];
+    CGFloat velocityX = [config[@"maru"][@"velocity"][@"x"] floatValue];
+    CGFloat velocityY = [config[@"maru"][@"velocity"][@"y"] floatValue];
 
-//    CGFloat radius = [config[@"ball"][@"radius"] floatValue];
+    CGFloat radius = [config[@"maru"][@"radius"] floatValue];
     SKSpriteNode *maru = [SKSpriteNode spriteNodeWithImageNamed:@"maru_blue"];
     maru.name = @"maru";
     maru.position = CGPointMake(0 +160, 124 +160);
     maru.size = CGSizeMake(50, 50);
     
     //physicsBodyを使うことで重力環境になり、衝突が可能になる
-//    maru.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:radius]; //丸さ
+    maru.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:radius]; //丸さ
     maru.physicsBody.affectedByGravity = NO;  //ボールは固定はしないけど、重力を無視するため/重力の影響を受けるかどうか
     maru.physicsBody.velocity = CGVectorMake(velocityX, velocityY);  //velocityで力を加えてる/加える力の大きさ
     maru.physicsBody.restitution = 1.0f; //a反発係数を1に
