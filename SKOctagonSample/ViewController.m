@@ -20,6 +20,12 @@
     //self.viewをSKViewに差し替え
     SKView *skView = [[SKView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.view = skView;
+    
+    /*
+     用意したViewをSKviewに差し替えれば、四角内で跳ね返るかなと思ったが、できなかった
+    SKView *skView = [[SKView alloc] initWithFrame:CGRectMake(0, 124, 320, 320)];
+    squareView = skView;
+     */
 }
 
 - (void)viewDidLoad {
@@ -41,6 +47,7 @@
     
     //SKSceneをインスタンス化
     SKScene *scene = [SKPlayScene sceneWithSize:self.view.bounds.size];
+//    SKScene *scene = [SKPlayScene sceneWithSize:squareView.bounds.size];
     [skView presentScene:scene];
     scene.scaleMode = SKSceneScaleModeAspectFill;  //sizeをfitさせる
     [skView presentScene:scene];

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController{
+    IBOutlet UIView *squareView; //ボードの裏
+}
 
 @end
 

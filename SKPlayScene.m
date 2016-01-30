@@ -19,6 +19,7 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //*2だよ
  __doneボールを画像に変更する
  __doneボールに重力
  パドルをあれして透明にして反射させる
+ パドルとボールを跳ね返るように
  SKscene自体を正方形にしたら跳ね返るのではないのではないかと思ったよ
  viewにSKsceneつけられるかどうか、SKの中で判定している変数をラベル(UIView上)に反映させられるか
  maruを4個かつランダムな色に
@@ -79,6 +80,12 @@ static NSDictionary *config = nil;
     SKSpriteNode *paddle = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(width, height)];
     paddle.name = @"paddle";
     paddle.position = CGPointMake(CGRectGetMidX(self.frame), y);
+    
+    
+    //以下加えてみた
+    paddle.physicsBody.usesPreciseCollisionDetection = YES;  //yesで衝突判定が可能に
+    paddle.physicsBody.categoryBitMask = blockCategory;       //categoryBitMaskはそれが何のクラスか判別する。contactTestBitMaskに設定したものとcontact(接触)した場合didBeginContact:が呼ばれる
+    paddle.physicsBody.contactTestBitMask = blockCategory;  //contactTestBitMaskにblockCategoryを設定してる
     
     [self addChild:paddle];
 }
@@ -146,15 +153,14 @@ static NSDictionary *config = nil;
     UITouch *touch = [touches anyObject];
     CGPoint locaiton = [touch locationInNode:self];
     
-    /*
-     --------パドルの移動について---------
+
+    /* --------パドルの移動について--------- */
     CGFloat speed = [config[@"paddle"][@"speed"] floatValue];
     CGFloat x = locaiton.x;
     CGFloat diff = abs(x - [self paddleNode].position.x);
     CGFloat duration = speed * diff;
     SKAction *move = [SKAction moveToX:x duration:duration];
     [[self paddleNode] runAction:move];
-     */
 }
 
 
