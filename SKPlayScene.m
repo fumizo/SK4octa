@@ -34,6 +34,7 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //*2だよ
 @end
 @implementation SKPlayScene{
     SKSpriteNode *paddle;
+    SKSpriteNode *maru;
 }
 
 - (id)initWithSize:(CGSize)size {
@@ -86,7 +87,18 @@ static NSDictionary *config = nil;
     CGFloat velocityY = [config[@"maru"][@"velocity"][@"y"] floatValue];
     
     //    CGFloat radius = [config[@"maru"][@"radius"] floatValue];
-    SKSpriteNode *maru = [SKSpriteNode spriteNodeWithImageNamed:@"maru_blue"];
+    
+    int random = (int)arc4random_uniform(4);
+    if(random == 1){
+        maru = [SKSpriteNode spriteNodeWithImageNamed:@"maru_blue"];
+    }else if (random == 2){
+        maru = [SKSpriteNode spriteNodeWithImageNamed:@"maru_pink_low"];
+    }else if (random == 3){
+        maru = [SKSpriteNode spriteNodeWithImageNamed:@"maru_yellow_low"];
+    }else if (random == 0){
+        maru = [SKSpriteNode spriteNodeWithImageNamed:@"maru_green_low"];
+    }
+
     maru.name = @"maru";
     maru.position = CGPointMake(0 +160, 124 +160);
     maru.size = CGSizeMake(50, 50);
