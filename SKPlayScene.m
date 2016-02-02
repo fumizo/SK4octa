@@ -104,25 +104,33 @@ static NSDictionary *config = nil;
     maru.physicsBody.collisionBitMask = paddleCategory; //collisionの対象としてpaddlを指定
     
     [self addChild:maru];
+}
+
+-(void)addBall2{
+    SKSpriteNode *maru = [SKSpriteNode spriteNodeWithImageNamed:@"maru_blue"];
+    maru.name = @"maru";
+    maru.position = CGPointMake(0 +160, 124 +160);
+    maru.size = CGSizeMake(50, 50);
     
+    //physicsBodyを使うことで重力環境になり、衝突が可能になる
+    maru.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:maru.size];
+    //    maru.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:radius]; //円形の物理体を生成
+    maru.physicsBody.affectedByGravity = NO;  //ボールは固定はしないけど、重力を無視するため/重力の影響を受けるかどうか
+    maru.physicsBody.velocity = CGVectorMake(velocityX, velocityY);  //velocityで力を加えてる/加える力の大きさ
+    maru.physicsBody.restitution = 1.01f; //a反発係数を1に
+    maru.physicsBody.linearDamping = 0.0;  //b空気抵抗を0
+    maru.physicsBody.friction = 0.0;       //c摩擦を0...b.cによって跳ね返り(a)を一定に保つ
+    maru.physicsBody.angularDamping = 0.0; //回転による抵抗を0に
+    maru.physicsBody.usesPreciseCollisionDetection = YES;  //yesで衝突判定が可能に
+    maru.physicsBody.categoryBitMask = ballCategorySKPhysics;       //categoryBitMaskはそれが何のクラスか判別する。contactTestBitMaskに設定したものとcontact(接触)した場合didBeginContact:が呼ばれる
+    maru.physicsBody.contactTestBitMask = paddleCategory;  //contactTestBitMaskにblockCategoryを設定してる
+    //    maru.physicsBody.mass = 10.0; //重さを指定してるけど、重力は受けないことになってるから意味ない
+    maru.physicsBody.collisionBitMask = paddleCategory; //collisionの対象としてpaddlを指定
     
-    /*
-     SKShapeNode *ball = [SKShapeNode node];
-     ball.name = @"ball";
-     ball.position = CGPointMake(CGRectGetMidX([self paddleNode].frame), CGRectGetMaxY([self paddleNode].frame) + radius);
-     
-     CGMutablePathRef path = CGPathCreateMutable();
-     CGPathAddArc(path, NULL, 0, 0, radius, 0, M_PI * 2, YES);
-     ball.path = path;
-     ball.fillColor = [SKColor yellowColor];
-     ball.strokeColor = [SKColor clearColor];
-     
-     CGPathRelease(path);
-     
-     [self addChild:ball];
-     */
+    [self addChild:maru];
     
 }
+
 
 - (SKNode *)ballNode {
     return [self childNodeWithName:@"ball"];

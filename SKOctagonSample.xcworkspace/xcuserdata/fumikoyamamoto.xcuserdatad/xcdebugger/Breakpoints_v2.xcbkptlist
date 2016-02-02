@@ -14,9 +14,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "-didBeginContact:"
-            landmarkType = "5">
+            endingLineNumber = "185">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,9 +28,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "-didBeginContact:"
-            landmarkType = "5">
+            endingLineNumber = "189">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
