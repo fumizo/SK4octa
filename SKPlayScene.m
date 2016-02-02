@@ -30,8 +30,11 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //*2だよ
 
 @interface SKPlayScene() <SKPhysicsContactDelegate>
 
+
 @end
-@implementation SKPlayScene
+@implementation SKPlayScene{
+    SKSpriteNode *paddle;
+}
 
 - (id)initWithSize:(CGSize)size {
     self = [super initWithSize:size];
@@ -93,7 +96,7 @@ static NSDictionary *config = nil;
     //    maru.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:radius]; //円形の物理体を生成
     maru.physicsBody.affectedByGravity = NO;  //ボールは固定はしないけど、重力を無視するため/重力の影響を受けるかどうか
     maru.physicsBody.velocity = CGVectorMake(velocityX, velocityY);  //velocityで力を加えてる/加える力の大きさ
-    maru.physicsBody.restitution = 1.01f; //a反発係数を1に
+    maru.physicsBody.restitution = 1.0f; //a反発係数を1に
     maru.physicsBody.linearDamping = 0.0;  //b空気抵抗を0
     maru.physicsBody.friction = 0.0;       //c摩擦を0...b.cによって跳ね返り(a)を一定に保つ
     maru.physicsBody.angularDamping = 0.0; //回転による抵抗を0に
@@ -106,30 +109,6 @@ static NSDictionary *config = nil;
     [self addChild:maru];
 }
 
--(void)addBall2{
-    SKSpriteNode *maru = [SKSpriteNode spriteNodeWithImageNamed:@"maru_blue"];
-    maru.name = @"maru";
-    maru.position = CGPointMake(0 +160, 124 +160);
-    maru.size = CGSizeMake(50, 50);
-    
-    //physicsBodyを使うことで重力環境になり、衝突が可能になる
-    maru.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:maru.size];
-    //    maru.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:radius]; //円形の物理体を生成
-    maru.physicsBody.affectedByGravity = NO;  //ボールは固定はしないけど、重力を無視するため/重力の影響を受けるかどうか
-    maru.physicsBody.velocity = CGVectorMake(velocityX, velocityY);  //velocityで力を加えてる/加える力の大きさ
-    maru.physicsBody.restitution = 1.01f; //a反発係数を1に
-    maru.physicsBody.linearDamping = 0.0;  //b空気抵抗を0
-    maru.physicsBody.friction = 0.0;       //c摩擦を0...b.cによって跳ね返り(a)を一定に保つ
-    maru.physicsBody.angularDamping = 0.0; //回転による抵抗を0に
-    maru.physicsBody.usesPreciseCollisionDetection = YES;  //yesで衝突判定が可能に
-    maru.physicsBody.categoryBitMask = ballCategorySKPhysics;       //categoryBitMaskはそれが何のクラスか判別する。contactTestBitMaskに設定したものとcontact(接触)した場合didBeginContact:が呼ばれる
-    maru.physicsBody.contactTestBitMask = paddleCategory;  //contactTestBitMaskにblockCategoryを設定してる
-    //    maru.physicsBody.mass = 10.0; //重さを指定してるけど、重力は受けないことになってるから意味ない
-    maru.physicsBody.collisionBitMask = paddleCategory; //collisionの対象としてpaddlを指定
-    
-    [self addChild:maru];
-    
-}
 
 
 - (SKNode *)ballNode {
@@ -140,28 +119,36 @@ static NSDictionary *config = nil;
 
 # pragma mark - Paddle
 - (void)addPaddle {
+    [self paddleSetting];
+    paddle.position = CGPointMake(160, 449);
+    [self addChild:paddle];
+    
+    [self addSecondPaddle];
+}
+
+- (void)addSecondPaddle{
+    [self paddleSetting];
+    paddle.position = CGPointMake(160, 119);
+    [self addChild:paddle];
+}
+
+- (void)paddleSetting{
     CGFloat width = [config[@"paddle"][@"width"] floatValue];
     CGFloat height = [config[@"paddle"][@"height"] floatValue];
-    CGFloat y = [config[@"paddle"][@"y"] floatValue];
-    SKSpriteNode *paddle = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(width, height)];
-    paddle.position = CGPointMake(CGRectGetMidX(self.frame), y);
-    
+    //    CGFloat y = [config[@"paddle"][@"y"] floatValue];
+    paddle = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(width, height)];
+    //    paddle.position = CGPointMake(CGRectGetMidX(self.frame), y);
     paddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:paddle.size];
-
     paddle.physicsBody.usesPreciseCollisionDetection = YES;  //yesで衝突判定が可能に
     paddle.physicsBody.dynamic = NO;
     paddle.physicsBody.categoryBitMask = paddleCategory;
     paddle.physicsBody.collisionBitMask = ballCategorySKPhysics;
-    
     paddle.name = @"paddle";
-
-    [self addChild:paddle];
 }
 
 - (SKNode *)paddleNode {
     return [self childNodeWithName:@"paddle"];
 }
-
 
 
 # pragma mark - Touch
@@ -174,12 +161,17 @@ static NSDictionary *config = nil;
     
 
     /* --------パドルの移動について--------- */
+    /*
     CGFloat speed = [config[@"paddle"][@"speed"] floatValue];
     CGFloat x = locaiton.x;
     CGFloat diff = abs(x - [self paddleNode].position.x);
     CGFloat duration = speed * diff;
     SKAction *move = [SKAction moveToX:x duration:duration];
     [[self paddleNode] runAction:move];
+     */
+    
+    
+    [self addBall];
 }
 
 

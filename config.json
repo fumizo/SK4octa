@@ -8,8 +8,8 @@
     },
     
     "paddle" : {
-        "width" : 70.0,
-        "height" : 14.0,
+        "width" : 320.0,
+        "height" : 10.0,
         "y" : 40.0,
     },
     "maru" : {
