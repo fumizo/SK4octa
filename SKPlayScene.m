@@ -11,21 +11,16 @@
 #import "SKPlayScene.h"
 #import "YMCPhysicsDebugger.h"
 
-//<<...2でかけます
+
 //static const は定数(変数じゃないやつ)/そのクラス内で使われる
-//uint32_tは4バイト消費する
 //UInt32であるため、最大で32種類までしか種類を指定出来ない
-static const uint32_t paddleCategory = 0x1 << 0; //*1の意味
-static const uint32_t ballCategorySKPhysics = 0x1 << 1; //*2だよ
+static const uint32_t paddleCategory = 0x1 << 0; //0だよ
+static const uint32_t ballCategorySKPhysics = 0x1 << 1; //1だよ
 
 /*
- __doneボールを画像に変更する
- __doneボールに重力
  パドルをあれして透明にして反射させる
- パドルとボールを跳ね返るように
  SKscene自体を正方形にしたら跳ね返るのではないのではないかと思ったよ
  viewにSKsceneつけられるかどうか、SKの中で判定している変数をラベル(UIView上)に反映させられるか
- maruを4個かつランダムな色に
  */
 
 @interface SKPlayScene() <SKPhysicsContactDelegate>
@@ -42,15 +37,9 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //*2だよ
     if (self) {
         [YMCPhysicsDebugger init];
         [self makeBoard];
-    
-        //ボールがなければボールを生成
-        /*
-        if (![self ballNode]) {
-            [self addBall];
-        }
-         */
+        /* ボールがなければボールを生成
+        if (![self ballNode]) [self addBall]; */
         [self addBall];
-
         [self addPaddle];
         [self drawPhysicsBodies];
         //physicsBodyを設定する/重力が使えるようになる
@@ -107,7 +96,6 @@ static NSDictionary *config = nil;
     //config.jsonにある重力の大きさの値
     CGFloat velocityX = [config[@"maru"][@"velocity"][@"x"] floatValue]; //このふたつの値を変えることでスピードを調整できる
     CGFloat velocityY = [config[@"maru"][@"velocity"][@"y"] floatValue];
-    
     maru.name = @"maru";
     maru.position = CGPointMake(0 +160, 124 +160);
     maru.size = CGSizeMake(50, 50);
@@ -122,10 +110,9 @@ static NSDictionary *config = nil;
     maru.physicsBody.friction = 0.0;       //c摩擦を0...b.cによって跳ね返り(a)を一定に保つ
     maru.physicsBody.angularDamping = 0.0; //回転による抵抗を0に
     maru.physicsBody.usesPreciseCollisionDetection = YES;  //yesで衝突判定が可能に
-    maru.physicsBody.categoryBitMask = ballCategorySKPhysics;       //categoryBitMaskはそれが何のクラスか判別する。contactTestBitMaskに設定したものとcontact(接触)した場合didBeginContact:が呼ばれる
-    maru.physicsBody.contactTestBitMask = paddleCategory;  //contactTestBitMaskにblockCategoryを設定してる
-    //    maru.physicsBody.mass = 10.0; //重さを指定してるけど、重力は受けないことになってるから意味ない
-    maru.physicsBody.collisionBitMask = paddleCategory; //collisionの対象としてpaddlを指定
+    maru.physicsBody.categoryBitMask = ballCategorySKPhysics;       //categoryBitMaskを指定
+    maru.physicsBody.contactTestBitMask = paddleCategory;  //contact(跳ね返り)の対象としてpaddleを指定
+    maru.physicsBody.collisionBitMask = paddleCategory; //collision(衝突)の対象としてpaddlを指定
 }
 
 
@@ -134,7 +121,6 @@ static NSDictionary *config = nil;
     [self paddleSetting];
     paddle.position = CGPointMake(160, 449);
     [self addChild:paddle];
-    
     [self addSecondPaddle];
 }
 
