@@ -44,6 +44,7 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //1だよ
     CGFloat velocityY;
     
     SKSpriteNode * gestureView;
+    SKAction * transform45;
 }
 
 - (id)initWithSize:(CGSize)size {
@@ -59,6 +60,7 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //1だよ
         [self rightDownBall];
         [self rightUpBall];
         [self addPaddle];
+        
         [self drawPhysicsBodies];
         //physicsBodyを設定する/重力が使えるようになる
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
@@ -69,11 +71,13 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //1だよ
 }
 
 - (void)addGestureView {
-    gestureView = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(320, 568)];
-    gestureView.position = CGPointMake(568/2,320/2);
+    gestureView = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(300, 300)];
+    gestureView.position = CGPointMake(320/2,568/2);
     gestureView.userInteractionEnabled = YES;
-    SKAction * transform45 =  [SKAction rotateToAngle:M_PI/4 duration:0.1]; // 反時計回りに回転、最終角度は45度
-    [gestureView runAction:transform45];
+    transform45 =  [SKAction rotateToAngle:M_PI/4 duration:0.1]; // 反時計回りに回転、最終角度は45度
+
+    [gestureView runAction:transform45]; //回転させるのballをaddした後の方がいいかも
+
     [self addChild:gestureView];
 }
 
