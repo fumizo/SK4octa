@@ -53,6 +53,7 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //1だよ
         [self makeBoard];
         /* ボールがなければボールを生成
          if (![self ballNode]) [self addBallSetting]; */
+        [self addGestureView];
         [self leftUpBall];
         [self leftDownBall];
         [self rightDownBall];
@@ -67,21 +68,22 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //1だよ
     return self;
 }
 
-- (void)didMoveToView:(SKView *)view {
+- (void)addGestureView {
     gestureView = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(320, 568)];
     gestureView.position = CGPointMake(568/2,320/2);
     gestureView.userInteractionEnabled = YES;
-    
     SKAction * transform45 =  [SKAction rotateToAngle:M_PI/4 duration:0.1]; // 反時計回りに回転、最終角度は45度
     [gestureView runAction:transform45];
-    
     [self addChild:gestureView];
+}
+
+- (void)didMoveToView:(SKView *)view {
     
     //左
     UISwipeGestureRecognizer *swipeLeft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipe:)];
     swipeLeft.direction= UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeLeft];
-    //右
+    //右t
     UISwipeGestureRecognizer *swipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipe:)];
     swipeRight.direction= UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeRight];
