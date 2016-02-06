@@ -21,6 +21,12 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //1だよ
  パドルをあれして透明にして反射させる
  SKscene自体を正方形にしたら跳ね返るのではないのではないかと思ったよ
  viewにSKsceneつけられるかどうか、SKの中で判定している変数をラベル(UIView上)に反映させられるか
+ 
+ 今日やること
+ ななめの跳ね返りをどうやって
+ ジェスチャーをつける
+ OCTAGONにボードだけ組み込む or spritekitの方にラベルをつける
+
  */
 
 @interface SKPlayScene() <SKPhysicsContactDelegate>
@@ -30,6 +36,8 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //1だよ
 @implementation SKPlayScene{
     SKSpriteNode *paddle;
     SKSpriteNode *maru;
+    SKSpriteNode *diagonalPaddle;
+    SKAction * transform;
 }
 
 - (id)initWithSize:(CGSize)size {
@@ -108,7 +116,8 @@ static NSDictionary *config = nil;
     maru.physicsBody.restitution = 1.0f; //a反発係数を1に
     maru.physicsBody.linearDamping = 0.0;  //b空気抵抗を0
     maru.physicsBody.friction = 0.0;       //c摩擦を0...b.cによって跳ね返り(a)を一定に保つ
-    maru.physicsBody.angularDamping = 0.0; //回転による抵抗を0に
+    maru.physicsBody.allowsRotation = NO;
+//    maru.physicsBody.angularDamping = 0.0; //回転による抵抗を0に
     maru.physicsBody.usesPreciseCollisionDetection = YES;  //yesで衝突判定が可能に
     maru.physicsBody.categoryBitMask = ballCategorySKPhysics;       //categoryBitMaskを指定
     maru.physicsBody.contactTestBitMask = paddleCategory;  //contact(跳ね返り)の対象としてpaddleを指定
@@ -118,15 +127,21 @@ static NSDictionary *config = nil;
 
 # pragma mark - Paddle
 - (void)addPaddle {
+    [self leftdownPaddle]; //ななめのやつたす
+    [self leftUpPaddle];
+    [self rightUpPaddle];
+    [self rightDownPaddle];
+    
+    
     [self paddleSetting];
-    paddle.position = CGPointMake(160, 449);
+    paddle.position = CGPointMake(160, 440);
     [self addChild:paddle];
     [self addSecondPaddle];
 }
 
 - (void)addSecondPaddle{
     [self paddleSetting];
-    paddle.position = CGPointMake(160, 119);
+    paddle.position = CGPointMake(160, 129);
     [self addChild:paddle];
 }
 
@@ -135,13 +150,46 @@ static NSDictionary *config = nil;
     CGFloat height = [config[@"paddle"][@"height"] floatValue];
     //    CGFloat y = [config[@"paddle"][@"y"] floatValue];
     paddle = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(width, height)];
-    //    paddle.position = CGPointMake(CGRectGetMidX(self.frame), y);
+    paddle.alpha = 0.0; //隠す
     paddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:paddle.size];
     paddle.physicsBody.usesPreciseCollisionDetection = YES;  //yesで衝突判定が可能に
     paddle.physicsBody.dynamic = NO;
     paddle.physicsBody.categoryBitMask = paddleCategory;
     paddle.physicsBody.collisionBitMask = ballCategorySKPhysics;
     paddle.name = @"paddle";
+}
+
+- (void)diagonalPaddleSetting{
+    diagonalPaddle = [SKSpriteNode spriteNodeWithColor:[SKColor whiteColor] size:CGSizeMake(150, 150)];
+    diagonalPaddle.alpha = 0.0;
+    diagonalPaddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:diagonalPaddle.size];
+    diagonalPaddle.physicsBody.usesPreciseCollisionDetection = YES;  //yesで衝突判定が可能に
+    diagonalPaddle.physicsBody.dynamic = NO;
+    diagonalPaddle.physicsBody.categoryBitMask = paddleCategory;
+    diagonalPaddle.physicsBody.collisionBitMask = ballCategorySKPhysics;
+    diagonalPaddle.name = @"diagonalPaddle";
+    
+    transform =  [SKAction rotateToAngle:45.0 / 180.0 * M_PI duration:0.1]; // 反時計回りに回転、最終角度は45度
+    [diagonalPaddle runAction:transform];
+    
+    [self addChild:diagonalPaddle];
+}
+
+- (void)leftdownPaddle{
+    [self diagonalPaddleSetting];
+    diagonalPaddle.position = CGPointMake(0, 110);
+}
+- (void)rightDownPaddle{
+    [self diagonalPaddleSetting];
+    diagonalPaddle.position = CGPointMake(320, 110);
+}
+- (void)rightUpPaddle{
+    [self diagonalPaddleSetting];
+    diagonalPaddle.position = CGPointMake(320, 455);
+}
+- (void)leftUpPaddle{
+    [self diagonalPaddleSetting];
+    diagonalPaddle.position = CGPointMake(0, 455);
 }
 
 - (SKNode *)paddleNode {
