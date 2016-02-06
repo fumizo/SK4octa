@@ -23,38 +23,77 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //1だよ
  viewにSKsceneつけられるかどうか、SKの中で判定している変数をラベル(UIView上)に反映させられるか
  
  今日やること
- ななめの跳ね返りをどうやって
+ ___done___ななめの跳ね返りをどうやって
  ジェスチャーをつける
  OCTAGONにボードだけ組み込む or spritekitの方にラベルをつける
-
+ 
+ View自体にジェスチャーの判定をつける
+ 押したところにmaruがあればスワイプを呼ぶ
+ maruは一度スワイプされたらもう呼ばれないように
  */
 
 @interface SKPlayScene() <SKPhysicsContactDelegate>
 
-
 @end
-@implementation SKPlayScene{
+@implementation SKPlayScene {
     SKSpriteNode *paddle;
     SKSpriteNode *maru;
     SKSpriteNode *diagonalPaddle;
     SKAction * transform;
+    CGFloat velocityX;
+    CGFloat velocityY;
+    
+    SKSpriteNode * gestureView;
 }
 
 - (id)initWithSize:(CGSize)size {
     self = [super initWithSize:size];
     if (self) {
-        [YMCPhysicsDebugger init];
+        //        [YMCPhysicsDebugger init]; //これをONすれば物理演算をのせるものに赤い線が出てデバッグできる
         [self makeBoard];
         /* ボールがなければボールを生成
-        if (![self ballNode]) [self addBall]; */
-        [self addBall];
+         if (![self ballNode]) [self addBallSetting]; */
+        [self leftUpBall];
+        [self leftDownBall];
+        [self rightDownBall];
+        [self rightUpBall];
         [self addPaddle];
         [self drawPhysicsBodies];
         //physicsBodyを設定する/重力が使えるようになる
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
         self.physicsWorld.contactDelegate = self;  //物理演算をselfの中でやるよ。これがないとdelegateを使えない
-            }
+    }
+    
     return self;
+}
+
+- (void)didMoveToView:(SKView *)view {
+    gestureView = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(320, 568)];
+    gestureView.position = CGPointMake(568/2,320/2);
+    gestureView.userInteractionEnabled = YES;
+    
+    SKAction * transform45 =  [SKAction rotateToAngle:M_PI/4 duration:0.1]; // 反時計回りに回転、最終角度は45度
+    [gestureView runAction:transform45];
+    
+    [self addChild:gestureView];
+    
+    //左
+    UISwipeGestureRecognizer *swipeLeft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipe:)];
+    swipeLeft.direction= UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeLeft];
+    //右
+    UISwipeGestureRecognizer *swipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipe:)];
+    swipeRight.direction= UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeRight];
+    //上
+    UISwipeGestureRecognizer *swipeUp=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipe:)];
+    swipeUp.direction= UISwipeGestureRecognizerDirectionUp;
+    [self.view addGestureRecognizer:swipeUp];
+    //下
+    UISwipeGestureRecognizer *swipeDown=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipe:)];
+    swipeDown.direction= UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:swipeDown];
+
 }
 
 /*
@@ -63,7 +102,41 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //1だよ
  }
  */
 
-- (void) makeBoard{
+- (void)swipe:(UISwipeGestureRecognizer *)recognizer {
+    CGPoint point = [recognizer locationInView:[recognizer view]];
+    CGPoint skPoint = [recognizer locationInView:[recognizer view]];
+    skPoint.y = 568- point.y;  //CGPointの(0,0)とSK内での(0,0)が相違しているため
+    
+    //得られた位置にあるlayerを取得
+    SKNode *node = [self nodeAtPoint:skPoint];
+    // CALayer *layer = [[recognizer view].layer hitTest:point];
+    NSLog(@"layer class is ... %@",node);
+    
+    if ([node.class isSubclassOfClass:[SKSpriteNode class]] && node.name != NULL) {
+        NSLog(@"うごかすのはこいつです %@", node);
+        if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft) {
+            [self leftUpBallPhysics:node];
+        }else if(recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
+            [self rightDownBallPhysics:node];
+        }else if(recognizer.direction == UISwipeGestureRecognizerDirectionUp) {
+            [self rightUpBallPhysics:node];
+        }else if(recognizer.direction == UISwipeGestureRecognizerDirectionDown) {
+            [self leftDownBallPhysics:node];
+        }
+    }
+    /*
+    if (node == maru) {
+        if (recognizer.state == UIGestureRecognizerStateBegan)
+            NSLog(@"start coordinates: %@", NSStringFromCGPoint(point));
+        [self leftUpBallPhysics];
+    }
+     */
+
+}
+
+
+
+- (void)makeBoard {
     SKSpriteNode *gameBoard = [SKSpriteNode spriteNodeWithImageNamed:@"gameView_board"];
     //    gameBoard.frame = CGRectMake(0, 124, 320, 320);
     gameBoard.position = CGPointMake(0 +160, 124 +160);
@@ -73,6 +146,7 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //1だよ
 
 
 static NSDictionary *config = nil;
+
 + (void)initialize {
     //設定を読み込んで、static変数configに保持
     //main bundle = SKSampleのバンドル config.jsonの内容を文字列で持ってきて、pathにしますよ
@@ -85,7 +159,28 @@ static NSDictionary *config = nil;
 
 # pragma mark - Ball
 
-- (void)addBall {
+- (void)leftUpBall {
+    [self ballSetting];
+    maru.position = CGPointMake(160 -27, 124+160 +28);
+    [gestureView addChild:maru];
+}
+- (void)leftDownBall {
+    [self ballSetting];
+    maru.position = CGPointMake(160 -27, 124+160 -28);
+    [gestureView addChild:maru];
+}
+- (void)rightUpBall {
+    [self ballSetting];
+    maru.position = CGPointMake(160 +27, 124+160 +28);
+    [gestureView addChild:maru];
+}
+- (void)rightDownBall{
+    [self ballSetting];
+    maru.position = CGPointMake(160 +27, 124+160 -28);
+    [gestureView addChild:maru];
+}
+
+- (void)ballSetting {
     int random = (int)arc4random_uniform(4);
     if(random == 1){
         maru = [SKSpriteNode spriteNodeWithImageNamed:@"maru_blue"];
@@ -96,56 +191,69 @@ static NSDictionary *config = nil;
     }else if (random == 0){
         maru = [SKSpriteNode spriteNodeWithImageNamed:@"maru_green_low"];
     }
-    [self maruSetting];
-    [self addChild:maru];
+    maru.name = @"maru";
+//    maru.position = CGPointMake(0 +160, 124 +160);
+    maru.size = CGSizeMake(50, 50);
 }
 
-- (void) maruSetting{
+- (void)ballPhysicsSetting:(SKNode *)node {
     //config.jsonにある重力の大きさの値
-    CGFloat velocityX = [config[@"maru"][@"velocity"][@"x"] floatValue]; //このふたつの値を変えることでスピードを調整できる
-    CGFloat velocityY = [config[@"maru"][@"velocity"][@"y"] floatValue];
-    maru.name = @"maru";
-    maru.position = CGPointMake(0 +160, 124 +160);
-    maru.size = CGSizeMake(50, 50);
+    velocityX = [config[@"maru"][@"velocity"][@"x"] floatValue]; //このふたつの値を変えることでスピードを調整できる
+    velocityY = [config[@"maru"][@"velocity"][@"y"] floatValue];
     
     //physicsBodyを使うことで重力環境になり、衝突が可能になる
-    maru.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:maru.size];
-    //    maru.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:radius]; //円形の物理体を生成
-    maru.physicsBody.affectedByGravity = NO;  //ボールは固定はしないけど、重力を無視するため/重力の影響を受けるかどうか
-    maru.physicsBody.velocity = CGVectorMake(velocityX, velocityY);  //velocityで力を加えてる/加える力の大きさ
-    maru.physicsBody.restitution = 1.0f; //a反発係数を1に
-    maru.physicsBody.linearDamping = 0.0;  //b空気抵抗を0
-    maru.physicsBody.friction = 0.0;       //c摩擦を0...b.cによって跳ね返り(a)を一定に保つ
-    maru.physicsBody.allowsRotation = NO;
-//    maru.physicsBody.angularDamping = 0.0; //回転による抵抗を0に
-    maru.physicsBody.usesPreciseCollisionDetection = YES;  //yesで衝突判定が可能に
-    maru.physicsBody.categoryBitMask = ballCategorySKPhysics;       //categoryBitMaskを指定
-    maru.physicsBody.contactTestBitMask = paddleCategory;  //contact(跳ね返り)の対象としてpaddleを指定
-    maru.physicsBody.collisionBitMask = paddleCategory; //collision(衝突)の対象としてpaddlを指定
+    node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:maru.size];
+    node.physicsBody.affectedByGravity = NO;  //ボールは固定はしないけど、重力を無視するため/重力の影響を受けるかどうか
+    node.physicsBody.restitution = 1.0f; //a反発係数を1に
+    node.physicsBody.linearDamping = 0.0;  //b空気抵抗を0
+    node.physicsBody.friction = 0.0;       //c摩擦を0...b.cによって跳ね返り(a)を一定に保つ
+    node.physicsBody.allowsRotation = NO;  //回転しないように
+    //    maru.physicsBody.angularDamping = 0.0; //回転による抵抗を0に
+    node.physicsBody.usesPreciseCollisionDetection = YES;  //yesで衝突判定が可能に
+    node.physicsBody.categoryBitMask = ballCategorySKPhysics;       //categoryBitMaskを指定
+    node.physicsBody.contactTestBitMask = paddleCategory;  //contact(跳ね返り)の対象としてpaddleを指定
+    node.physicsBody.collisionBitMask = paddleCategory; //collision(衝突)の対象としてpaddlを指定
 }
 
+- (void)rightUpBallPhysics:(SKNode *)node {
+    [self ballPhysicsSetting:node];
+    node.physicsBody.velocity = CGVectorMake(velocityX, velocityY);  //velocityで力を加えてる/加える力の大きさ
+}
+- (void)rightDownBallPhysics:(SKNode *)node {
+    [self ballPhysicsSetting:node];
+    node.physicsBody.velocity = CGVectorMake(velocityX, -velocityY);
+}
+- (void)leftUpBallPhysics:(SKNode *)node {
+    [self ballPhysicsSetting:node];
+    node.physicsBody.velocity = CGVectorMake(-velocityX, velocityY);
+}
+- (void)leftDownBallPhysics:(SKNode *)node {
+    [self ballPhysicsSetting:node];
+    node.physicsBody.velocity = CGVectorMake(-velocityX, -velocityY);
+}
 
 # pragma mark - Paddle
 - (void)addPaddle {
-    [self leftdownPaddle]; //ななめのやつたす
+    [self leftdownPaddle]; //ななめのやつを足す
     [self leftUpPaddle];
     [self rightUpPaddle];
     [self rightDownPaddle];
     
-    
+    //上のパドルを生成
     [self paddleSetting];
     paddle.position = CGPointMake(160, 440);
     [self addChild:paddle];
     [self addSecondPaddle];
 }
 
-- (void)addSecondPaddle{
+- (void)addSecondPaddle {
+    //下のパドルを生成
     [self paddleSetting];
     paddle.position = CGPointMake(160, 129);
     [self addChild:paddle];
 }
 
-- (void)paddleSetting{
+- (void)paddleSetting {
     CGFloat width = [config[@"paddle"][@"width"] floatValue];
     CGFloat height = [config[@"paddle"][@"height"] floatValue];
     //    CGFloat y = [config[@"paddle"][@"y"] floatValue];
@@ -174,20 +282,19 @@ static NSDictionary *config = nil;
     
     [self addChild:diagonalPaddle];
 }
-
-- (void)leftdownPaddle{
+- (void)leftdownPaddle {
     [self diagonalPaddleSetting];
     diagonalPaddle.position = CGPointMake(0, 110);
 }
-- (void)rightDownPaddle{
+- (void)rightDownPaddle {
     [self diagonalPaddleSetting];
     diagonalPaddle.position = CGPointMake(320, 110);
 }
-- (void)rightUpPaddle{
+- (void)rightUpPaddle {
     [self diagonalPaddleSetting];
     diagonalPaddle.position = CGPointMake(320, 455);
 }
-- (void)leftUpPaddle{
+- (void)leftUpPaddle {
     [self diagonalPaddleSetting];
     diagonalPaddle.position = CGPointMake(0, 455);
 }
@@ -199,14 +306,18 @@ static NSDictionary *config = nil;
 
 # pragma mark - Touch
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+/*
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     //タッチした場所を取得
     UITouch *touch = [touches anyObject];
-    CGPoint locaiton = [touch locationInNode:self];
-
-    [self addBall];
+    CGPoint location = [touch locationInNode:self];
+    
+    NSLog(@"%@", NSStringFromCGPoint(location));
+    
+    //    [self addBall];
+    // [self ballPhysics];
 }
-
+ */
 
 
 
@@ -223,11 +334,11 @@ static NSDictionary *config = nil;
         secondBody = contact.bodyA;
     }
     /*
-    if (firstBody.categoryBitMask & blockCategory) {
-        if (secondBody.categoryBitMask & ballCategory) {
-            [self decreaseBlockLife:firstBody.node];
-        }
-    }
+     if (firstBody.categoryBitMask & blockCategory) {
+     if (secondBody.categoryBitMask & ballCategory) {
+     [self decreaseBlockLife:firstBody.node];
+     }
+     }
      */
 }
 
