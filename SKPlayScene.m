@@ -71,18 +71,19 @@ static const uint32_t ballCategorySKPhysics = 0x1 << 1; //1だよ
 }
 
 - (void)addGestureView {
-    gestureView = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(300, 300)];
-    gestureView.position = CGPointMake(320/2,568/2);
+    gestureView = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(320, 320)];
+    gestureView.position = CGPointMake(320/2,55);
+//    gestureView.alpha = 0.3f;
     gestureView.userInteractionEnabled = YES;
     transform45 =  [SKAction rotateToAngle:M_PI/4 duration:0.1]; // 反時計回りに回転、最終角度は45度
+    gestureView.anchorPoint = CGPointMake(0.0f, 0.0f);
 
     [gestureView runAction:transform45]; //回転させるのballをaddした後の方がいいかも
 
     [self addChild:gestureView];
 }
 
-- (void)didMoveToView:(SKView *)view {
-    
+- (void)didMoveToView:(SKSpriteNode *)gestureView {
     //左
     UISwipeGestureRecognizer *swipeLeft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipe:)];
     swipeLeft.direction= UISwipeGestureRecognizerDirectionLeft;
@@ -167,22 +168,27 @@ static NSDictionary *config = nil;
 
 - (void)leftUpBall {
     [self ballSetting];
-    maru.position = CGPointMake(160 -27, 124+160 +28);
+//    maru.position = CGPointMake(160 -27, 124+160 +28);
+    maru.position = CGPointMake(150, 150 +40);
+
     [gestureView addChild:maru];
 }
 - (void)leftDownBall {
     [self ballSetting];
-    maru.position = CGPointMake(160 -27, 124+160 -28);
+//    maru.position = CGPointMake(160 -27, 124+160 -28);
+    maru.position = CGPointMake(150 -40, 150);
     [gestureView addChild:maru];
 }
 - (void)rightUpBall {
     [self ballSetting];
-    maru.position = CGPointMake(160 +27, 124+160 +28);
+//    maru.position = CGPointMake(160 +27, 124+160 +28);
+    maru.position = CGPointMake(150  +40,150);
     [gestureView addChild:maru];
 }
 - (void)rightDownBall{
     [self ballSetting];
-    maru.position = CGPointMake(160 +27, 124+160 -28);
+//    maru.position = CGPointMake(160 +27, 124+160 -28);
+    maru.position = CGPointMake(150, 150 -40);
     [gestureView addChild:maru];
 }
 
